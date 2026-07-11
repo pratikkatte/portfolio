@@ -3,7 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { FaLinkedinIn } from "react-icons/fa6";
+import { SiGithub, SiGmail, SiX } from "react-icons/si";
 import { profile, type Project } from "./site-data";
+
+const contactIcons = {
+  gmail: SiGmail,
+  linkedin: FaLinkedinIn,
+  github: SiGithub,
+  x: SiX,
+};
 
 const nav = [
   { label: "Projects", href: "/" },
@@ -153,10 +162,11 @@ export function ContactLink({
   label,
 }: {
   href: string;
-  icon: string;
+  icon: keyof typeof contactIcons;
   label: string;
 }) {
   const isEmail = href.startsWith("mailto:");
+  const Icon = contactIcons[icon];
 
   return (
     <a
@@ -167,7 +177,9 @@ export function ContactLink({
       target={isEmail ? undefined : "_blank"}
       rel={isEmail ? undefined : "noreferrer"}
     >
-      <span className="contact-icon" aria-hidden="true">{icon}</span>
+      <span className="contact-icon" aria-hidden="true">
+        <Icon size={14} />
+      </span>
       <span>{label}</span>
     </a>
   );

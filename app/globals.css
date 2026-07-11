@@ -371,8 +371,6 @@ hr {
   border-radius: 3px;
   background: var(--icon-bg);
   color: var(--icon-text);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 10px;
   font-weight: 700;
 }
 

@@ -27,10 +27,10 @@ export default function Home() {
             software.
           </p>
           <div className="contact-links" aria-label="Contact links">
-            <ContactLink href={`mailto:${profile.email}`} icon="@" label="Email" />
-            <ContactLink href={profile.linkedin} icon="in" label="LinkedIn" />
-            <ContactLink href={profile.github} icon="GH" label="GitHub" />
-            <ContactLink href={profile.twitter} icon="X" label="X" />
+            <ContactLink href={`mailto:${profile.email}`} icon="gmail" label="Email" />
+            <ContactLink href={profile.linkedin} icon="linkedin" label="LinkedIn" />
+            <ContactLink href={profile.github} icon="github" label="GitHub" />
+            <ContactLink href={profile.twitter} icon="x" label="X" />
           </div>
         </div>
       </section>
