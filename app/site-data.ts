@@ -287,6 +287,22 @@ export const writing = [
   },
 ];
 
+export const reading = {
+  currently: {
+    title: "Ancestral Recombination Graphs",
+    description:
+      "Working through how local genealogies change across the genome, and how to make that structure easier to see.",
+    href: "/writing#ancestral-recombination-graphs",
+  },
+  books: [
+    {
+      title: "Waste of a Nation",
+      description: "Book notes on garbage, growth, and waste systems in India.",
+      href: "https://pratikkatte.substack.com/p/book-summary-waste-of-nation",
+    },
+  ],
+};
+
 export const highlights = [
   "Biobank-scale genomic visualization",
   "Pathogen surveillance and phylogenetic placement",

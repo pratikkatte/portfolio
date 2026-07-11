@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ContactLink, ProjectSection } from "./components";
-import { profile, projects } from "./site-data";
+import { profile, projects, reading } from "./site-data";
 
 export default function Home() {
   return (
@@ -41,6 +41,30 @@ export default function Home() {
         <Link href="/projects" className="home-signal-link">
           View all work <span aria-hidden="true">↗</span>
         </Link>
+      </section>
+
+      <section className="reading-section" aria-label="Reading">
+        <article className="reading-current">
+          <p className="home-kicker">Currently reading</p>
+          <h2>{reading.currently.title}</h2>
+          <p>{reading.currently.description}</p>
+          <Link href={reading.currently.href}>
+            Open reading notes <span aria-hidden="true">↗</span>
+          </Link>
+        </article>
+        <article className="reading-books">
+          <p className="home-kicker">Books + notes</p>
+          {reading.books.map((book) => (
+            <a className="book-row" href={book.href} key={book.title} target="_blank" rel="noreferrer">
+              <span className="book-mark" aria-hidden="true">BK</span>
+              <span>
+                <strong>{book.title}</strong>
+                <small>{book.description}</small>
+              </span>
+              <span className="home-project-arrow" aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </article>
       </section>
 
       <section className="home-work-index" aria-labelledby="projects-title">

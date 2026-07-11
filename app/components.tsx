@@ -2,14 +2,28 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { profile, type Project } from "./site-data";
 
 const nav = [
   { label: "Projects", href: "/" },
-  { label: "Talks and Publications", href: "/publications" },
-  { label: "Blogs", href: "/writing" },
+  { label: "Talks + Publications", href: "/publications" },
+  { label: "Writing", href: "/writing" },
   { label: "Resume", href: profile.resume },
 ];
+
+function getInitialTheme(): "light" | "dark" {
+  if (typeof window === "undefined") {
+    return "light";
+  }
+
+  const storedTheme = window.localStorage.getItem("theme");
+  if (storedTheme === "dark" || storedTheme === "light") {
+    return storedTheme;
+  }
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -21,27 +35,67 @@ export function SiteHeader() {
       </a>
       <nav className="nav-shell" aria-label="Primary navigation">
         <Link className="brand" href="/">
-          {profile.name}
+          <span className="brand-mark" aria-hidden="true">PK</span>
+          <span>{profile.name}</span>
         </Link>
-        <div className="nav-links">
-          {nav.map((item) =>
-            item.href.startsWith("/") && !item.href.endsWith(".pdf") ? (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={pathname === item.href ? "page" : undefined}
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <a key={item.href} href={item.href} target="_blank" rel="noreferrer">
-                {item.label}
-              </a>
-            ),
-          )}
+        <div className="nav-tools">
+          <div className="nav-links">
+            {nav.map((item) =>
+              item.href.startsWith("/") && !item.href.endsWith(".pdf") ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={
+                    (item.href === "/"
+                      ? pathname === "/" || pathname === "/projects"
+                      : pathname === item.href)
+                      ? "page"
+                      : undefined
+                  }
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a key={item.href} href={item.href} target="_blank" rel="noreferrer">
+                  {item.label}
+                </a>
+              ),
+            )}
+          </div>
+          <ThemeToggle />
         </div>
       </nav>
     </header>
+  );
+}
+
+export function ThemeToggle() {
+  const [theme, setTheme] = useState<"light" | "dark">(getInitialTheme);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  function toggleTheme() {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    window.localStorage.setItem("theme", nextTheme);
+    document.documentElement.dataset.theme = nextTheme;
+  }
+
+  return (
+    <button
+      className="theme-toggle"
+      type="button"
+      onClick={toggleTheme}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      aria-pressed={theme === "dark"}
+      suppressHydrationWarning
+    >
+      <span aria-hidden="true">{theme === "dark" ? "☀" : "☾"}</span>
+    </button>
   );
 }
 
