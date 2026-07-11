@@ -91,6 +91,32 @@ export function ExternalLink({
   );
 }
 
+export function ContactLink({
+  href,
+  icon,
+  label,
+}: {
+  href: string;
+  icon: string;
+  label: string;
+}) {
+  const isEmail = href.startsWith("mailto:");
+
+  return (
+    <a
+      className="contact-link"
+      href={href}
+      aria-label={label}
+      title={label}
+      target={isEmail ? undefined : "_blank"}
+      rel={isEmail ? undefined : "noreferrer"}
+    >
+      <span className="contact-icon" aria-hidden="true">{icon}</span>
+      <span>{label}</span>
+    </a>
+  );
+}
+
 export function ProjectSection({ project }: { project: Project }) {
   return (
     <article className="project-entry" id={project.slug}>
