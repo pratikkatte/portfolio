@@ -23,6 +23,11 @@ export default function PublicationsPage() {
               {publication.venue} ({publication.year})
               {publication.note ? ` - ${publication.note}` : ""}
             </p>
+            {publication.link ? (
+              <a href={publication.link} target="_blank" rel="noreferrer">
+                Read paper ↗
+              </a>
+            ) : null}
           </li>
         ))}
       </ul>

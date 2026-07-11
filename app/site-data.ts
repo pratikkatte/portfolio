@@ -46,6 +46,10 @@ export const projects: Project[] = [
     links: [
       { label: "Website", href: "https://lorax.ucsc.edu/" },
       { label: "GitHub", href: "https://github.com/pratikkatte/lorax" },
+      {
+        label: "Paper",
+        href: "https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btag458/8721294",
+      },
     ],
     featured: true,
   },
@@ -68,6 +72,10 @@ export const projects: Project[] = [
     links: [
       { label: "Website", href: "https://turakhia.ucsd.edu/WEPP/" },
       { label: "GitHub", href: "https://github.com/TurakhiaLab/WEPP/" },
+      {
+        label: "Paper",
+        href: "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1014124",
+      },
     ],
     featured: true,
   },
@@ -180,6 +188,22 @@ export const projects: Project[] = [
 ];
 
 export const publications = [
+  {
+    title: "WEPP: Phylogenetic placement achieves near-haplotype resolution in wastewater-based epidemiology",
+    venue: "PLOS Computational Biology 22(3)",
+    year: "2026",
+    authors: "Pranav Gangwar, Pratik Katte, Manu Bhat, Yatish Turakhia",
+    note: "e1014124",
+    link: "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1014124",
+  },
+  {
+    title: "Interactive exploration of biobank-scale ancestral recombination graphs with Lorax",
+    venue: "Bioinformatics",
+    year: "2026",
+    authors: "Pratik Katte, Russell Corbett-Detig",
+    note: "Advance article, btag458",
+    link: "https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btag458/8721294",
+  },
   {
     title: "Automated Thermal Screening for COVID-19 using Machine Learning",
     venue: "AIIIMA, MICCAI Workshop",
