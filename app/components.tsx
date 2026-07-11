@@ -94,7 +94,9 @@ export function ThemeToggle() {
       aria-pressed={theme === "dark"}
       suppressHydrationWarning
     >
-      <span aria-hidden="true">{theme === "dark" ? "☀" : "☾"}</span>
+      <span aria-hidden="true" suppressHydrationWarning>
+        {theme === "dark" ? "☀" : "☾"}
+      </span>
     </button>
   );
 }
