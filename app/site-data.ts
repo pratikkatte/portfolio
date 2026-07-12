@@ -277,6 +277,13 @@ export const talks = [
 
 export const writing = [
   {
+    title: "CellMap: Making Biology Feel Like a Place",
+    summary:
+      "Why I built an interactive, explorable world for understanding cells from the inside.",
+    topic: "Scientific visualization",
+    href: "/writing/cell-map",
+  },
+  {
     title: "Ancestral Recombination Graphs",
     summary:
       "An overview of ARGs and why they matter for understanding human evolution and health.",
