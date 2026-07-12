@@ -96,6 +96,22 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "genomic-piano",
+    title: "Genomic Piano",
+    eyebrow: "Genomics + creative coding",
+    summary:
+      "An interactive genomic instrument that turns DNA, RNA, and protein sequences into browser-generated music.",
+    impact:
+      "Makes sequence translation tangible by mapping amino acids to piano keys and nucleotide modifiers to sound.",
+    details: [
+      "Genomic Piano lets visitors paste biological sequences and hear how nucleotides, codons, and amino acids become a playable composition.",
+      "The project combines genomics education, browser audio, and interactive design to make molecular information feel immediate and memorable.",
+    ],
+    tags: ["Genomics", "Music", "Interactive web", "Education"],
+    links: [{ label: "Website", href: "https://music.pratikkatte.com/" }],
+    featured: true,
+  },
+  {
     slug: "structhunt",
     title: "StructHunt",
     eyebrow: "LLMs for scientific curation",
