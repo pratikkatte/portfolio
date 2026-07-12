@@ -55,14 +55,25 @@ export default function Home() {
         <article className="reading-books">
           <p className="home-kicker">Books + notes</p>
           {reading.books.map((book) => (
-            <a className="book-row" href={book.href} key={book.title} target="_blank" rel="noreferrer">
-              <span className="book-mark" aria-hidden="true">BK</span>
-              <span>
-                <strong>{book.title}</strong>
-                <small>{book.description}</small>
-              </span>
-              <span className="home-project-arrow" aria-hidden="true">↗</span>
-            </a>
+            book.href ? (
+              <a className="book-row" href={book.href} key={book.title} target="_blank" rel="noreferrer">
+                <span className="book-mark" aria-hidden="true">BK</span>
+                <span>
+                  <strong>{book.title}</strong>
+                  <small>{book.description}</small>
+                </span>
+                <span className="home-project-arrow" aria-hidden="true">↗</span>
+              </a>
+            ) : (
+              <div className="book-row" key={book.title}>
+                <span className="book-mark" aria-hidden="true">BK</span>
+                <span>
+                  <strong>{book.title}</strong>
+                  <small>{book.description}</small>
+                </span>
+                <span className="home-project-arrow" aria-hidden="true">·</span>
+              </div>
+            )
           ))}
         </article>
       </section>

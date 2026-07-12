@@ -363,6 +363,22 @@ export const reading = {
       description: "Book notes on garbage, growth, and waste systems in India.",
       href: "https://pratikkatte.substack.com/p/book-summary-waste-of-nation",
     },
+    {
+      title: "Dance to the Tune of Life",
+      description: "On my reading list.",
+    },
+    {
+      title: "The Selfish Gene",
+      description: "On my reading list.",
+    },
+    {
+      title: "The Great Mental Models",
+      description: "On my reading list.",
+    },
+    {
+      title: "Saakshi",
+      description: "S. L. Bhyrappa",
+    },
   ],
 };
 
