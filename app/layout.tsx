@@ -22,8 +22,11 @@ export const metadata: Metadata = {
   description:
     "Portfolio of Pratik Katte, a graduate student building research tools across evolutionary genomics, applied AI, public health, and scientific software.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
   },
   openGraph: {
     title: "Pratik Katte | Research and AI Portfolio",
