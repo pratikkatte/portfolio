@@ -80,6 +80,22 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "cellmap",
+    title: "CellMap",
+    eyebrow: "Scientific visualization",
+    summary:
+      "An immersive, E. coli-inspired exploration of a Gram-negative bacterial cell.",
+    impact:
+      "Turns cellular structure into an approachable interactive experience for exploring biology on the web.",
+    details: [
+      "CellMap invites visitors inside a bacterial cell through a visual, web-based experience focused on the architecture of Gram-negative bacteria.",
+      "The project combines scientific storytelling with an immersive interface to make cellular structure easier to explore and remember.",
+    ],
+    tags: ["Cell biology", "E. coli", "Scientific visualization", "Interactive web"],
+    links: [{ label: "Website", href: "https://cell-map.com/" }],
+    featured: true,
+  },
+  {
     slug: "structhunt",
     title: "StructHunt",
     eyebrow: "LLMs for scientific curation",
