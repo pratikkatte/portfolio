@@ -277,6 +277,13 @@ export const talks = [
 
 export const writing = [
   {
+    title: "Genomic Piano: What Does DNA Sound Like?",
+    summary:
+      "A playful experiment in turning genomic sequences into sound, and a vision for hearing biological patterns.",
+    topic: "Genomics + sonification",
+    href: "/writing/genomic-piano",
+  },
+  {
     title: "CellMap: Making Biology Feel Like a Place",
     summary:
       "Why I built an interactive, explorable world for understanding cells from the inside.",
