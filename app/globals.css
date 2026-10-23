@@ -96,7 +96,6 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
 .publication-item strong { font-weight: 500; }
 .publication-item > a, .writing-item > a { font-size: 14px; }
 .talks-heading { margin-top: 50px; }
-.writing-topic { font-size: 12px !important; margin-bottom: 8px; }
 .writing-image { float: right; width: 240px; height: 150px; object-fit: cover; margin: 0 0 20px 36px; border: 1px solid var(--line); }
 .article-shell { max-width: 760px; }
 .article-header { border-bottom: 1px solid var(--line); padding-bottom: 32px; }

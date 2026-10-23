@@ -20,10 +20,8 @@ export default function WritingPage() {
           <li className="writing-item" id={slugify(post.title)} key={post.title}>
             {post.href === "/writing#wepp" ? <span id="wepp" /> : null}
             {post.image ? <img className="writing-image" src={post.image} alt="" /> : null}
-            <p className="writing-topic">{post.topic}</p>
-            <h2>{post.title}</h2>
+            <h2><ExternalLink href={post.href}>{post.title}</ExternalLink></h2>
             <p>{post.summary}</p>
-            <ExternalLink href={post.href}>Read more</ExternalLink>
           </li>
         ))}
       </ul>
