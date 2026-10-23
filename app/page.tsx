@@ -1,121 +1,70 @@
 import Link from "next/link";
-import { ContactLink, ProjectSection } from "./components";
+import { ContactLink, ExternalLink } from "./components";
 import { profile, projects, reading } from "./site-data";
 
 export default function Home() {
   return (
-    <main id="main" className="section-shell">
-      <section className="home-hero" aria-labelledby="about-title">
-        <div className="home-portrait-column">
-          <div className="home-portrait-card">
-            <img src="/images/pratik.jpg" alt="Pratik Katte" />
-          </div>
-          <p className="portrait-note">
-            <span className="portrait-note-dot" aria-hidden="true" />
-            Research software · Applied AI
+    <main id="main" tabIndex={-1} className="section-shell home">
+      <section className="home-intro" aria-labelledby="about-title">
+        <div className="intro-copy">
+          <h1 id="about-title">Pratik Katte</h1>
+          <p className="intro-statement">I study evolutionary genomics and build research software.</p>
+          <p className="intro-affiliation">
+            Graduate student at the <a href={profile.lab} target="_blank" rel="noreferrer">Corbett-Detig Lab</a>.
           </p>
+
         </div>
-        <div className="home-intro">
-          <p className="home-kicker">Pratik Katte / Research portfolio</p>
-          <h1 id="about-title">Building tools for a more legible living world.</h1>
-          <p className="home-lede">
-            I&apos;m a graduate student at the{" "}
-            <a href={profile.lab} target="_blank" rel="noreferrer">
-              Corbett-Detig Lab
-            </a>
-            , working across evolutionary genomics, applied AI, and research
-            software.
-          </p>
+        <img className="intro-portrait" src="/images/pratik.jpg" alt="Pratik Katte" width="112" height="136" />
+        <div className="intro-bio">
+          <p>My work spans evolutionary genomics, generative AI, and scientific visualization. I’m interested in building generative models for biological inference and making complex biological data easier to explore and use.</p>
+          <p>Before my current research, I worked on clinical AI and thermal imaging tools at Niramai. I’ve also explored scientific curation with LLMs, creative coding, and a recycling startup.</p>
           <div className="contact-links" aria-label="Contact links">
             <ContactLink href={`mailto:${profile.email}`} icon="gmail" label="Email" />
-            <ContactLink href={profile.linkedin} icon="linkedin" label="LinkedIn" />
             <ContactLink href={profile.github} icon="github" label="GitHub" />
-            <ContactLink href={profile.twitter} icon="x" label="X" />
+            <ContactLink href={profile.linkedin} icon="linkedin" label="LinkedIn" />
+            <ContactLink href={profile.scholar} icon="scholar" label="Google Scholar" />
           </div>
         </div>
       </section>
 
-      <section className="home-signal" aria-label="Current focus">
-        <span className="home-signal-label">Currently exploring</span>
-        <strong>Evolution, ancestral recombination graphs, and generative AI.</strong>
-        <Link href="/projects" className="home-signal-link">
-          View all work <span aria-hidden="true">↗</span>
-        </Link>
-      </section>
-
-      <section className="reading-section" aria-label="Reading">
-        <article className="reading-current">
-          <p className="home-kicker">Currently reading</p>
-          <h2>{reading.currently.title}</h2>
-          <p>{reading.currently.description}</p>
-          <Link href={reading.currently.href}>
-            Open reading notes <span aria-hidden="true">↗</span>
-          </Link>
-        </article>
-        <article className="reading-books">
-          <p className="home-kicker">Books + notes</p>
-          {reading.books.map((book) => (
-            book.href ? (
-              <a className="book-row" href={book.href} key={book.title} target="_blank" rel="noreferrer">
-                <span className="book-mark" aria-hidden="true">BK</span>
-                <span>
-                  <strong>{book.title}</strong>
-                  <small>{book.description}</small>
-                </span>
-                <span className="home-project-arrow" aria-hidden="true">↗</span>
-              </a>
-            ) : (
-              <div className="book-row" key={book.title}>
-                <span className="book-mark" aria-hidden="true">BK</span>
-                <span>
-                  <strong>{book.title}</strong>
-                  <small>{book.description}</small>
-                </span>
-                <span className="home-project-arrow" aria-hidden="true">·</span>
-              </div>
-            )
-          ))}
-        </article>
-      </section>
-
-      <section className="home-work-index" aria-labelledby="projects-title">
-        <div className="home-section-intro">
-          <p className="home-kicker">Selected work</p>
-          <h2 id="projects-title">Research tools built to be used.</h2>
-          <p>
-            From genomic visualization to public-health surveillance and clinical
-            AI, each project connects a difficult research question to a usable
-            interface.
-          </p>
-        </div>
-        <div className="home-project-list">
+      <section aria-label="Projects">
+        <ul className="home-projects">
           {projects.map((project) => (
-            <a className="home-project-row" key={project.slug} href={`#${project.slug}`}>
-              <span className="home-project-number" aria-hidden="true">
-                {String(projects.indexOf(project) + 1).padStart(2, "0")}
-              </span>
-              <span>
-                <strong>{project.title}</strong>
-                <small>{project.eyebrow}</small>
-              </span>
-              <span className="home-project-arrow" aria-hidden="true">↗</span>
-            </a>
+            <li key={project.slug}>
+              <article className="home-project" aria-labelledby={`${project.slug}-title`}>
+                <h2 id={`${project.slug}-title`}>
+                  <Link href={`/projects#${project.slug}`}>{project.title}</Link>
+                  {" - "}
+                  <span className="home-project-summary">{project.summary}</span>
+                </h2>
+                <div className="project-links" aria-label={`${project.title} links`}>
+                  {project.links.map((link) => (
+                    <ExternalLink key={link.href} href={link.href}>
+                      {link.label} <span aria-hidden="true">↗</span>
+                    </ExternalLink>
+                  ))}
+                </div>
+              </article>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
-      <hr />
-      <section className="home-project-details" aria-label="Project details">
-        <div className="home-detail-heading">
-          <p className="home-kicker">Project notes</p>
-          <h2>What the work does</h2>
-        </div>
-        {projects.map((project) => (
-          <div key={project.slug}>
-            <ProjectSection project={project} />
-            <hr />
-          </div>
-        ))}
+      <section className="reading-section" aria-labelledby="reading-title">
+        <aside className="reading-notes" aria-labelledby="reading-title">
+          <h2 id="reading-title">On my reading desk</h2>
+          <p className="reading-label">Currently working through</p>
+          <h3><Link href={reading.currently.href}>{reading.currently.title}</Link></h3>
+          <p>{reading.currently.description}</p>
+          <ul className="book-list">
+            {reading.books.map((book) => (
+              <li key={book.title}>
+                {book.href ? <ExternalLink href={book.href}>{book.title} ↗</ExternalLink> : <span>{book.title}</span>}
+                <small>{book.description}</small>
+              </li>
+            ))}
+          </ul>
+        </aside>
       </section>
     </main>
   );

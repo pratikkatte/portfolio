@@ -5,6 +5,7 @@ export const profile = {
   email: "pratikkatte7@gmail.com",
   github: "https://github.com/pratikkatte",
   linkedin: "https://linkedin.com/in/pratikkatte",
+  scholar: "https://scholar.google.com/citations?user=KwGZpKkAAAAJ&hl=en&authuser=1",
   twitter: "https://twitter.com/pratik_katte",
   lab: "https://corbett-lab.github.io/",
   domain: "https://pratikkatte.com",
@@ -21,12 +22,30 @@ export type Project = {
   tags: string[];
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   gallery?: Array<{ src: string; alt: string }>;
   links: Array<{ label: string; href: string }>;
   featured?: boolean;
 };
 
 export const projects: Project[] = [
+  {
+    slug: "argflows",
+    title: "ARGFlows",
+    eyebrow: "ARG inference",
+    summary:
+      "Amortized posterior sampling of ancestral recombination graphs with GFlowNets.",
+    impact:
+      "Learns an approximate posterior sampler, enabling independent draws after one training phase per dataset.",
+    details: [
+      "Uses generative flow networks for Bayesian inference over ancestral recombination graphs, representing uncertainty in coalescence times and local genealogical structure.",
+    ],
+    tags: ["ARGs", "GFlowNets", "Bayesian inference", "Posterior sampling"],
+    links: [
+      { label: "Preprint", href: "https://openreview.net/pdf?id=FjqKV15EKc" },
+    ],
+  },
   {
     slug: "lorax",
     title: "Lorax",
@@ -43,6 +62,8 @@ export const projects: Project[] = [
     image:
       "https://raw.githubusercontent.com/pratikkatte/lorax/main/docs/images/lorax-demo-2.gif",
     imageAlt: "Animated Lorax ancestral recombination graph demo",
+    imageWidth: 1280,
+    imageHeight: 706,
     links: [
       { label: "Website", href: "https://lorax.ucsc.edu/" },
       { label: "GitHub", href: "https://github.com/pratikkatte/lorax" },
@@ -69,6 +90,8 @@ export const projects: Project[] = [
     tags: ["Wastewater", "Phylogenetics", "Dashboards", "Pathogen surveillance"],
     image: "/images/wepp.png",
     imageAlt: "WEPP dashboard preview",
+    imageWidth: 753,
+    imageHeight: 512,
     links: [
       { label: "Website", href: "https://turakhia.ucsd.edu/WEPP/" },
       { label: "GitHub", href: "https://github.com/TurakhiaLab/WEPP/" },
@@ -82,6 +105,10 @@ export const projects: Project[] = [
   {
     slug: "cellmap",
     title: "CellMap",
+    image: "/images/cellmap.png",
+    imageAlt: "CellMap website showing an illustrated microscopic world of cells and bacteriophages",
+    imageWidth: 1280,
+    imageHeight: 720,
     eyebrow: "Scientific visualization",
     summary:
       "An immersive, E. coli-inspired exploration of a Gram-negative bacterial cell.",

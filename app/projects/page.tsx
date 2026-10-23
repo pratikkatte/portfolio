@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main id="main" className="section-shell">
+    <main id="main" tabIndex={-1} className="section-shell">
       <section className="page-heading">
         <h1>Projects</h1>
         <p>Research tools, applied AI systems, and product experiments.</p>

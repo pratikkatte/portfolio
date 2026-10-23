@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PublicationsPage() {
   return (
-    <main id="main" className="section-shell">
+    <main id="main" tabIndex={-1} className="section-shell">
       <section className="page-heading">
         <h1>Publications</h1>
       </section>
@@ -32,7 +32,7 @@ export default function PublicationsPage() {
         ))}
       </ul>
 
-      <h1 className="talks-heading">Talks</h1>
+      <h2 className="talks-heading">Talks</h2>
       <ul className="talk-list">
         {talks.map((talk) => (
           <li className="talk-item" key={talk.href}>

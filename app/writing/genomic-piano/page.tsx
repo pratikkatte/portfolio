@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function GenomicPianoArticle() {
   return (
-    <main id="main" className="section-shell article-shell">
+    <main id="main" tabIndex={-1} className="section-shell article-shell">
       <article className="writing-article">
         <header className="article-header">
           <p className="article-kicker">Genomic Piano / Project notes</p>

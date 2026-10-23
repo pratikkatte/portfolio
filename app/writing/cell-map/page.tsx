@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function CellMapArticle() {
   return (
-    <main id="main" className="section-shell article-shell">
+    <main id="main" tabIndex={-1} className="section-shell article-shell">
       <article className="writing-article">
         <header className="article-header">
           <p className="article-kicker">CellMap / Project notes</p>

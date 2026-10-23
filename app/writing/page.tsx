@@ -3,21 +3,22 @@ import { ExternalLink } from "../components";
 import { writing } from "../site-data";
 
 export const metadata: Metadata = {
-  title: "Blogs",
+  title: "Writing",
   description:
     "Writing by Pratik Katte on ancestral recombination graphs, scientific AI, health systems, and clinical tools.",
 };
 
 export default function WritingPage() {
   return (
-    <main id="main" className="section-shell">
+    <main id="main" tabIndex={-1} className="section-shell">
       <section className="page-heading">
-        <h1>Blogs</h1>
+        <h1>Writing</h1>
         <p>Notes on genomics, applied AI, healthcare, and infrastructure.</p>
       </section>
       <ul className="writing-list">
         {writing.map((post) => (
           <li className="writing-item" id={slugify(post.title)} key={post.title}>
+            {post.href === "/writing#wepp" ? <span id="wepp" /> : null}
             {post.image ? <img className="writing-image" src={post.image} alt="" /> : null}
             <p className="writing-topic">{post.topic}</p>
             <h2>{post.title}</h2>
