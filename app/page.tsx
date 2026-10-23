@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ContactLink, ExternalLink } from "./components";
-import { profile, projects, reading } from "./site-data";
+import { profile, projects } from "./site-data";
 
 export default function Home() {
   return (
@@ -50,22 +50,7 @@ export default function Home() {
         </ul>
       </section>
 
-      <section className="reading-section" aria-labelledby="reading-title">
-        <aside className="reading-notes" aria-labelledby="reading-title">
-          <h2 id="reading-title">On my reading desk</h2>
-          <p className="reading-label">Currently working through</p>
-          <h3><Link href={reading.currently.href}>{reading.currently.title}</Link></h3>
-          <p>{reading.currently.description}</p>
-          <ul className="book-list">
-            {reading.books.map((book) => (
-              <li key={book.title}>
-                {book.href ? <ExternalLink href={book.href}>{book.title} ↗</ExternalLink> : <span>{book.title}</span>}
-                <small>{book.description}</small>
-              </li>
-            ))}
-          </ul>
-        </aside>
-      </section>
+
     </main>
   );
 }

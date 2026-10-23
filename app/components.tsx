@@ -15,8 +15,6 @@ const contactIcons = {
 };
 
 const nav = [
-  { label: "Work", href: "/projects" },
-  { label: "Talks + Publications", href: "/publications" },
   { label: "Writing", href: "/writing" },
 ];
 
