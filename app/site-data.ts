@@ -304,6 +304,13 @@ export const talks = [
 
 export const writing = [
   {
+    title: "Permutation Symmetry in Graphs: Why Node Ordering Shouldn’t Matter",
+    summary:
+      "Permutation invariance, equivariance, and automorphisms—and why node ordering matters for learning over phylogenetic trees and ancestral recombination graphs.",
+    topic: "Graph Theory",
+    href: "/writing/permutation-symmetry",
+  },
+  {
     title: "Genomic Piano: What Does DNA Sound Like?",
     summary:
       "A playful experiment in turning genomic sequences into sound, and a vision for hearing biological patterns.",

@@ -97,6 +97,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
 .article-body { padding: 35px 0; }
 .article-body p { font-size: 17px; line-height: 1.8; margin-bottom: 24px; }
 .article-body h2 { margin: 40px 0 20px; font-size: 26px; }
+.graph-equation { margin: 24px 0; padding: 20px; overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+.graph-equation math { font-size: 1.25rem; }
 .article-body blockquote { margin: 30px 0; padding-left: 24px; border-left: 2px solid var(--accent); font-family: Georgia, "Times New Roman", serif; font-size: 25px; }
 .article-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; padding-block: 24px; border-top: 1px solid var(--line); font-size: 14px; }
 .site-footer { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; border-top: 1px solid var(--line); padding: 26px 0 36px; font-size: 13px; }
